@@ -1,1 +1,30 @@
-<div>I'm Your Inbox</div>
+<div class="panel panel-gray">
+    <div class="panel-heading">
+        <h4>Inbox</h4>
+    </div>
+    <div class="panel-body">
+        <form action="#">
+            <div class="input-group">
+                <input ng-model="vm.search" type="text" placeholder="Search messages..." class="form-control">
+                <div class="input-group-btn">
+                    <button type="button" class="btn btn-primary"><i class="glyphicon glyphicon-search"></i></button>
+                </div>
+            </div>
+        </form>
+        <hr>
+        <table class="table table-striped table-advance table-hover">
+
+            <tbody>
+            <tr ng-repeat="msg in vm.messages | filter:vm.search">
+                <td><span><input type="checkbox" icheck></span></td>
+                <td class="hidden-xs">{{msg.sender}}</td>
+                <td>{{msg.title}}</td>
+                <td><i ng-if="msg.attachment" class="glyphicon glyphicon-paperclip"></i></td>
+                <td><i ng-if="msg.star" class="glyphicon glyphicon-star"></i></td>
+                <td class="text-right">{{msg.date}}</td>
+            </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>
