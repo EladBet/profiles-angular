@@ -25,12 +25,18 @@
 <body data-ng-app="app" id="app" data-ng-controller="AdminAppCtrl as vm">
 
 <div>
-    <inbox></inbox>
+    <ul class="nav nav-tabs" style="font-size: 18px">
+        <li role="presentation" ng-class="{active:vm.url == '/profiles' || vm.url == '/'}"><a href="#/profiles">Profiles</a></li>
+        <li role="presentation" ng-class="{active:vm.url == '/inbox'}"><a href="#/inbox">Inbox</a></li>
+    </ul>
+    <div ng-view></div>
+    <!--<inbox></inbox>-->
     <!--<profiles></profiles>-->
 </div>
 
 
 <script src="bower_components/angular/angular.min.js"></script>
+<script src="bower_components/angular-route/angular-route.min.js"></script>
 <script src="bower_components/angular-animate/angular-animate.min.js"></script>
 <script src="bower_components/a0-angular-storage/dist/angular-storage.min.js"></script>
 <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>

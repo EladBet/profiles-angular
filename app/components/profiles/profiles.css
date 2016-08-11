@@ -21,6 +21,16 @@ body {
     margin-top: 17px;
 }
 
+.status{
+    padding: 10px;
+    background-color: #eee;
+    overflow: hidden;
+    position: relative;
+    border-radius: 3px;
+    color: #fff !important;
+    background-color: #9358ac !important;
+}
+
 .boxInner {
     background: #FFF;
     text-align: left;
@@ -28,12 +38,22 @@ body {
     border: 1px solid #d4d5d7;
     cursor: pointer;
     overflow-y: hidden;
-    height: 100px;
+    height: 170px;
     padding: 0 20px;
     margin: auto;
+    font-size: 1.5em;
 }
 .boxInner h1 {
     font-size: 18px;
+}
+
+.boxInner img{
+    width: 50px;
+}
+
+.numbers{
+    margin-top:10px;
+    font-size14px
 }
 
 .boxInner .bio{

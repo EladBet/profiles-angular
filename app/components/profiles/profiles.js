@@ -25,6 +25,15 @@ angular.module("profiles", ['ngAnimate', 'ui.bootstrap' ])
         ///
 
         function init(){
+
+            ProfileService.getSelected(vm.profilesApi+"selectedProfiles").then(function(res) {
+                if (res) {
+                    vm.selectedProfiles = res;
+                }
+            }, function (reason){
+                alert('error');
+            });
+
             ProfileService.getList(vm.profilesApi+"profiles").then(function(res) {
                 if (res) {
                     vm.profiles = res;
@@ -39,8 +48,12 @@ angular.module("profiles", ['ngAnimate', 'ui.bootstrap' ])
             if (!_.findWhere(vm.selectedProfiles, {'id':vm.activeProfile.id})) {
 
                // vm.activeProfile.image = vm.facebookApi + vm.activeProfile.fbprof + "/picture";
+                vm.activeProfile.likes = Math.floor((Math.random() * 100) );
+                vm.activeProfile.photos = Math.floor((Math.random() * 100) );
+                vm.activeProfile.friends = Math.floor((Math.random() * 100) );
                 vm.selectedProfiles.push(angular.copy(vm.activeProfile));
                 vm.activeProfile = {};
+                vm.selected = {};
             }
             else
                 alert('Error - profile not valid');

@@ -4,11 +4,32 @@
  **************************/
 
 
-angular.module("app", ['profiles','inbox'])
-    .controller("AdminAppCtrl", [function () {
+angular.module("app", ['ngRoute', 'profiles','inbox'])
+    .controller("AdminAppCtrl", ['$location', '$scope', function ($location, $scope) {
         var vm = this;
 
+
+        $scope.$watch(function () {
+            return $location.path();
+        }, function (newVal, oldVal) {
+            vm.url = $location.path();
+        });
     }])
+    .config(function($routeProvider, $locationProvider) {
+        $routeProvider
+            .when('/', {
+                template: '<profiles></profiles>'
+            })
+            .when('/profiles', {
+                template: '<profiles></profiles>',
+            })
+            .when('/inbox', {
+                template: '<inbox></inbox>'
+            }).otherwise({
+                redirectTo: '/'
+            });
+    })
+
     .service('InboxService', ['$q', function($q) {
         var service = this;
 
@@ -35,6 +56,21 @@ angular.module("app", ['profiles','inbox'])
     .service('ProfileService', ['$q', function($q) {
         var service = this;
 
+        service.getSelected = function(url) {
+            var deferred = $q.defer();
+
+            var profiles = [{"id":"jeremy_potter","full":"Jeremy Potter","bio":"Former CEO of SundaySky","status":"Why don't you tell us more?", image:"assets/aniss.png","likes":5, "friends":10, "photos":99},
+                {"id":"david_tennant","full":"David Tennant","bio":"President of IronSource","status":"How about we don't?", image:"assets/corbett.png","likes":5, "friends":10, "photos":99},
+                {"id":"anna_johansson","full":"Anna Johansson","bio":"CEO of Wix","status":"Point taken. What do you guys want to do?", image:"assets/johansson.png","likes":5, "friends":10, "photos":99},
+                {"id":"howard_jobs","full":"Howard Jobs","bio":"CEO of Klarna","status":"No one talks about... the Other...", image:"assets/paton.png","likes":5, "friends":10, "photos":99}];
+
+            setTimeout(function() {
+                deferred.resolve(profiles);
+            }, 200);
+
+            return deferred.promise;
+        };
+
         service.getList = function(url) {
             var deferred = $q.defer();
 
@@ -49,6 +85,7 @@ angular.module("app", ['profiles','inbox'])
 
             return deferred.promise;
         };
+
         service.getProfile = function(url) {
             var deferred = $q.defer();
 
@@ -64,7 +101,7 @@ angular.module("app", ['profiles','inbox'])
                     profile ={"id":"mark_zuckerberg","full":"Mark Zuckerberg","bio":"CEO of Facebook","fbprof":"112845672063384","isprivate":false, image:"http://graph.facebook.com/112845672063384/picture"};
                     break;
                 case 'marissa_mayer':
-                    profile ={"id":"marissa_mayer","full":"Marissa Mayer","bio":"CEO of Yahoo!","fbprof":"106065309425342","isprivate":true, image:"http://graph.facebook.com/106065309425342/picture"};
+                    profile = {"id":"marissa_mayer","full":"Marissa Mayer","bio":"CEO of Yahoo!","fbprof":"106065309425342","isprivate":true, image:"http://graph.facebook.com/106065309425342/picture"};
                     break;
             }
 
