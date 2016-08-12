@@ -5,7 +5,6 @@
     "admin <admin@example.com>"
   ],
   "description": "profiles-angular",
-  "directory":"public/bower_components",
   "main": "index.html",
   "license": "MIT",
   "ignore": [
