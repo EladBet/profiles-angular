@@ -1,10 +1,12 @@
 {
-  "name": "angular-gallery",
+  "name": "profiles-angular",
   "version": "0.0.1",
   "devDependencies": {
-    "http-server": "^0.6.1"
+    "body-parser": "^1.13.3",
+    "express": "^4.13.3",
+    "mongodb": "^2.1.6"
   },
   "scripts": {
-    "start": "http-server -a localhost -p 8000"
+    "start": "node server.js"
   }
 }

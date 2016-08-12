@@ -1,0 +1,4 @@
+[{"id":"jeremy_potter","full":"Jeremy Potter","bio":"Former CEO of SundaySky","status":"Why don't you tell us more?", "image":"assets/aniss.png","likes":5, "friends":10, "photos":99},
+  {"id":"david_tennant","full":"David Tennant","bio":"President of IronSource","status":"How about we don't?", "image":"assets/corbett.png","likes":5, "friends":10, "photos":99},
+  {"id":"anna_johansson","full":"Anna Johansson","bio":"CEO of Wix","status":"Point taken. What do you guys want to do?", "image":"assets/johansson.png","likes":5, "friends":10, "photos":99},
+  {"id":"howard_jobs","full":"Howard Jobs","bio":"CEO of Klarna","status":"No one talks about... the Other...", "image":"assets/paton.png","likes":5, "friends":10, "photos":99}]

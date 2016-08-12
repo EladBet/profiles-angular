@@ -1,0 +1,8 @@
+[{"id":"1","sender":"Bill Gates", "title":"Waiting for documentation", "attachment":true, "star":true,"date":"May 5" },
+  {"id":"2","sender":"Posiedon Web", "title":"Lorem ipsum dolor sit amet", "attachment":true, "star":true,"date":"May 5" },
+  {"id":"3","sender":"Barack Obama", "title":"Lorem ipsum dolor sit amet", "attachment":false, "star":true,"date":"May 4" },
+  {"id":"4","sender":"Douglas Adams", "title":"Lorem ipsum dolor sit amet", "attachment":false, "star":true,"date":"May 4" },
+  {"id":"5","sender":"Mark Zuckerberg", "title":"Rilate niro lakem, consectetuer adipiscing", "attachment":true, "star":false ,"date":"May 3"},
+  {"id":"6","sender":"Nero", "title":"Rilate niro lakem, consectetuer adipiscing", "attachment":true, "star":false ,"date":"May 3"},
+  {"id":"7","sender":"Marissa Mayer", "title":"Lemons for sale", "attachment":false, "star":false ,"date":"May 2"},
+  {"id":"8","sender":"John Doe", "title":"Waiting for documentation", "attachment":false, "star":false ,"date":"May 2"}]

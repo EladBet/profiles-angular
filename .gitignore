@@ -1,5 +1,4 @@
 #Ignore dis folder and node_modules folder
 .idea/*
-node_modules
-bower_components
-dist
+public/node_modules
+public/bower_components
