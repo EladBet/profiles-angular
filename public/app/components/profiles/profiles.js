@@ -45,18 +45,12 @@ angular.module("profiles", ['ngAnimate', 'ui.bootstrap' ])
         }
 
         vm.insert = function () {
-            if (!_.findWhere(vm.selectedProfiles, {'id':vm.activeProfile.id})) {
-
-               // vm.activeProfile.image = vm.facebookApi + vm.activeProfile.fbprof + "/picture";
-                vm.activeProfile.likes = Math.floor((Math.random() * 100) );
-                vm.activeProfile.photos = Math.floor((Math.random() * 100) );
-                vm.activeProfile.friends = Math.floor((Math.random() * 100) );
-                vm.selectedProfiles.push(angular.copy(vm.activeProfile));
-                vm.activeProfile = {};
-                vm.selected = {};
-            }
-            else
-                alert('Error - profile not valid');
+            vm.activeProfile.likes = Math.floor((Math.random() * 100) );
+            vm.activeProfile.photos = Math.floor((Math.random() * 100) );
+            vm.activeProfile.friends = Math.floor((Math.random() * 100) );
+            vm.selectedProfiles.push(angular.copy(vm.activeProfile));
+            vm.activeProfile = {};
+            vm.selected = {};
         };
 
         vm.loadProfile = function() {

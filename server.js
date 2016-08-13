@@ -39,6 +39,21 @@ app.get('/messages', function (req, res) {
         res.end( data );
     });
 });
+
+app.get('/messages/:id', function (req, res) {
+    // First read existing users.
+    fs.readFile( __dirname + "/" + "messages.json", 'utf8', function (err, data) {
+        messages = JSON.parse( data );
+        var messageRes = messages.filter(function( obj ) {
+            return obj.id == req.params.id;
+        });
+        if (messageRes.length >= 0)
+            var message = messageRes[0];
+        console.log( message );
+        res.end( JSON.stringify(message));
+    });
+});
+
 // Initialize the app.
 var server = app.listen(process.env.PORT || 8081, function () {
     var host = server.address().address;

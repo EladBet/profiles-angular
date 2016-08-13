@@ -1,3 +1,22 @@
 td{
     font-size: 1.5em;
 }
+
+tr{
+    cursor: pointer;
+}
+
+.modal-body{
+    font-family: 'Open Sans','Segoe UI','Droid Sans',Tahoma,Arial,sans-serif;
+    font-size: 14px;
+}
+
+.from{
+    color: gray;
+    font-size: 19px;
+    font-family: 'Open Sans','Segoe UI','Droid Sans',Tahoma,Arial,sans-serif;
+}
+
+.modal-footer span{
+    font-size: 19px;
+}

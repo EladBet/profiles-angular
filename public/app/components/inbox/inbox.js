@@ -11,7 +11,7 @@ angular.module("inbox", ['ngAnimate', 'ui.bootstrap'])
     }])
 
     //controller
-    .controller("InboxController", [ '$scope', '$filter', '$http', function ($scope, $filter, $http) {
+    .controller("InboxController", [ '$scope', '$filter', '$http', '$uibModal', function ($scope, $filter, $http, $uibModal) {
         var vm = this;
         vm.inboxApi = "";
         vm.messages = [];
@@ -29,4 +29,39 @@ angular.module("inbox", ['ngAnimate', 'ui.bootstrap'])
             });
 
         }
-    }]);
+
+        vm.openMessage = function(id){
+            var modalInstance = $uibModal.open({
+                animation: true,
+                templateUrl: 'messageContent.html',
+                controller: 'ModalInstanceCtrl',
+                resolve: {
+                    id: function(){
+                        return id;
+                    }
+                }
+            });
+
+        }
+    }])
+
+//modal controller
+    .controller('ModalInstanceCtrl', function ($scope, $http, $uibModalInstance, id) {
+        $scope.id = id;
+        $scope.message = {};
+
+
+        $http.get("/messages/"+id).then(function(res) {
+            if (res.data) {
+                $scope.message = res.data;
+            }
+        }, function (reason){
+            alert('error');
+        });
+
+        $scope.cancel = function () {
+            $uibModalInstance.dismiss('cancel');
+        };
+    })
+    //end modal controller
+;

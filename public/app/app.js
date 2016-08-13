@@ -4,7 +4,7 @@
  **************************/
 
 
-angular.module("app", ['ngRoute', 'profiles','inbox'])
+angular.module("app", ['ngRoute', 'profiles', 'inbox',  'ui.bootstrap'])
     .controller("AdminAppCtrl", ['$location', '$scope', function ($location, $scope) {
         var vm = this;
 
